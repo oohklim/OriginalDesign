@@ -1,52 +1,41 @@
-float r = 0;
+float h = random(100); 
+float j = 0.5;
 
 void setup()
 {
-  size(500,500);
-  background(255);
+  size(500,500,P3D);
+  colorMode(HSB,100);
+  frameRate(20);
 }
 
 void draw()
 {
-  eye();
-  tomoe();
-  ring();
-}
-
-void tomoe()	
-{ 
-  translate(250,250);
-  r = r + .03;
-  if(r > 0)
+  background(h, 50, 100);
+  h = h + j;
+  if(h > 100 || h < 0)
   {
-  	rotate(r);
+    j = j * -1;
   }
-  fill(0);
-  noStroke();
-  arc(-130, 0, 100, 100, 0, PI, CHORD);
-  fill(255,0,0);
-  ellipse(-155, 0, 50, 50);
-  fill(0);
-  ellipse(-110, 5, 60, 60);
-  translate(-250,-250);
+  translate(250, 250, 0);
+  innerPolygon();
+  polygon();
 }
 
-void eye()
+void polygon()
 {
   stroke(0);
-  strokeWeight(10);
-  fill(255,0,0);
-  ellipse(250,250,390,390);
-  noStroke();
-  fill(0);
-  ellipse(250,250,65,65);
-}
-
-void ring()
-{
-  stroke(0);
-  strokeWeight(2);
   noFill();
-  ellipse(250,250,220,220);
+  rotateX(mouseY * 0.01);
+  rotateY(mouseX * 0.01);
+  sphereDetail(mouseX / 50);
+  sphere(125);
 }
 
+void innerPolygon()
+{
+  stroke(0, 3, 100);
+  rotateX(mouseX * 0.01);
+  rotateY(mouseY * 0.01);
+  sphereDetail(5);
+  sphere(50);
+}
