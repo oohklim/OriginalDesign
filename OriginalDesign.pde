@@ -10,16 +10,16 @@ void setup() {
 }
 
 void draw() {
-  background(h, 50, 90);
+  background(0, 0, 100);
+  translate(250, 250, 0);
+  innerPolygon();
+  polygon();
   h = h + j;
   k = k + 0.05;
   if (h > 100 || h < 1)
   {
     j = j * -1;
   }
-  translate(250, 250, 0);
-  innerPolygon();
-  polygon();
 }
 
 void polygon() {
@@ -31,7 +31,7 @@ void polygon() {
 }
 
 void innerPolygon() {
-  stroke(0,0,100);
+  stroke(h,50,90);
   rotateX(-k);
   rotateY(k);
   sphereDetail(5);
