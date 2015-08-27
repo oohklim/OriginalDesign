@@ -1,20 +1,18 @@
-float h = random(100);
+float h = random(255);
 float k = random(5);
-float j = 0.5;
+float j = 1.2;
 
-void setup()
-{
+void setup() {
   size(500,500,P3D);
-  colorMode(HSB,100);
   frameRate(20);
+  noFill();
 }
 
-void draw()
-{
-  background(h, 50, 90);
+void draw() {
+  background(h, 128, 230);
   h = h + j;
   k = k + 0.05;
-  if(h > 100 || h < 0)
+  if (h > 255 || h < 0)
   {
     j = j * -1;
   }
@@ -23,19 +21,16 @@ void draw()
   polygon();
 }
 
-void polygon()
-{
+void polygon() {
   stroke(0);
-  noFill();
   rotateX(k);
   rotateY(-k);
   sphereDetail(1);
   sphere(125);
 }
 
-void innerPolygon()
-{
-  stroke(0, 3, 100);
+void innerPolygon() {
+  stroke(255);
   rotateX(-k);
   rotateY(k);
   sphereDetail(5);
