@@ -31,7 +31,7 @@ void polygon() {
 }
 
 void innerPolygon() {
-  stroke(255);
+  stroke(0,0,100);
   rotateX(-k);
   rotateY(k);
   sphereDetail(5);
