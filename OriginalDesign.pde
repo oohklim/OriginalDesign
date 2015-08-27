@@ -1,18 +1,19 @@
-float h = random(255);
+float h = random(100);
 float k = random(5);
-float j = 1.2;
+float j = 0.5;
 
 void setup() {
   size(500,500,P3D);
+  colorMode(HSB,100);
   frameRate(20);
   noFill();
 }
 
 void draw() {
-  background(h, 128, 230);
+  background(h, 50, 90);
   h = h + j;
   k = k + 0.05;
-  if (h > 255 || h < 0)
+  if (h > 100 || h < 1)
   {
     j = j * -1;
   }
