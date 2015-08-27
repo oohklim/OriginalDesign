@@ -1,4 +1,5 @@
-float h = random(100); 
+float h = random(100);
+float k = random(5);
 float j = 0.5;
 
 void setup()
@@ -10,8 +11,9 @@ void setup()
 
 void draw()
 {
-  background(h, 50, 100);
+  background(h, 50, 90);
   h = h + j;
+  k = k + 0.05;
   if(h > 100 || h < 0)
   {
     j = j * -1;
@@ -25,17 +27,17 @@ void polygon()
 {
   stroke(0);
   noFill();
-  rotateX(mouseY * 0.01);
-  rotateY(mouseX * 0.01);
-  sphereDetail(mouseX / 50);
+  rotateX(k);
+  rotateY(-k);
+  sphereDetail(1);
   sphere(125);
 }
 
 void innerPolygon()
 {
   stroke(0, 3, 100);
-  rotateX(mouseX * 0.01);
-  rotateY(mouseY * 0.01);
+  rotateX(-k);
+  rotateY(k);
   sphereDetail(5);
   sphere(50);
 }
